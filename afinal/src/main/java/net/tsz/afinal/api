@@ -7,7 +7,7 @@
 
     FinalActivity模块：android中的ioc框架，完全注解方式就可以进行UI绑定和事件绑定。无需findViewById和setClickListener等。
 
-    FinalHttp模块：通过httpclient进行封装http数据请求，支持ajax方式加载。
+    网络访问模块：Volley
 
     FinalBitmap模块：通过FinalBitmap，imageview加载bitmap的时候无需考虑bitmap加载过程中出现的oom和android容器快速滑动时候出现的图片错位等
 现象。FinalBitmap可以配置线程加载线程数量，缓存大小，缓存路径，加载显示动画等。FinalBitmap的内存管理使用lru算法，没有使用弱引用
@@ -89,81 +89,6 @@ public class AfinalDemoActivity extends FinalActivity {
        View viewRoot = inflater.inflate(R.layout.map_frame, container, false);
        FinalActivity.initInjectedView(this,viewRoot);
     }
-FinalHttp使用方法：
-
-普通get方法
-
-FinalHttp fh = new FinalHttp();
-fh.get("http://www.yangfuhai.com", new AjaxCallBack(){
-
-    @Override
-    public void onLoading(long count, long current) { //每1秒钟自动被回调一次
-            textView.setText(current+"/"+count);
-    }
-
-    @Override
-    public void onSuccess(String t) {
-            textView.setText(t==null?"null":t);
-    }
-
-    @Override
-    public void onStart() {
-        //开始http请求的时候回调
-    }
-
-    @Override
-    public void onFailure(Throwable t, String strMsg) {
-        //加载失败的时候回调
-    }
-});
-使用FinalHttp上传文件 或者 提交数据 到服务器（post方法）
-
-文件上传到服务器，服务器如何接收，请查看这里
-
-  AjaxParams params = new AjaxParams();
-  params.put("username", "michael yang");
-  params.put("password", "123456");
-  params.put("email", "test@tsz.net");
-  params.put("profile_picture", new File("/mnt/sdcard/pic.jpg")); // 上传文件
-  params.put("profile_picture2", inputStream); // 上传数据流
-  params.put("profile_picture3", new ByteArrayInputStream(bytes)); // 提交字节流
-
-  FinalHttp fh = new FinalHttp();
-  fh.post("http://www.yangfuhai.com", params, new AjaxCallBack(){
-        @Override
-        public void onLoading(long count, long current) {
-                textView.setText(current+"/"+count);
-        }
-
-        @Override
-        public void onSuccess(String t) {
-            textView.setText(t==null?"null":t);
-        }
-  });
-使用FinalHttp下载文件：
-
-支持断点续传，随时停止下载任务 或者 开始任务
-    FinalHttp fh = new FinalHttp();
-    //调用download方法开始下载
-    HttpHandler handler = fh.download("http://www.xxx.com/下载路径/xxx.apk", //这里是下载的路径
-    true,//true:断点续传 false:不断点续传（全新下载）
-    "/mnt/sdcard/testapk.apk", //这是保存到本地的路径
-    new AjaxCallBack() {
-                @Override
-                public void onLoading(long count, long current) {
-                     textView.setText("下载进度："+current+"/"+count);
-                }
-
-                @Override
-                public void onSuccess(File t) {
-                    textView.setText(t==null?"null":t.getAbsoluteFile().toString());
-                }
-
-            });
-
-
-   //调用stop()方法停止下载
-   handler.stop();
 
 FinalBitmap 使用方法
 

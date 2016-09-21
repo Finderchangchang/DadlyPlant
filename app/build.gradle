@@ -17,7 +17,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.3.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'me.tatarka.retrolambda'
 
 dependencies {
     testCompile 'junit:junit:4.12'

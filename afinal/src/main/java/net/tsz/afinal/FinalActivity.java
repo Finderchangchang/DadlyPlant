@@ -30,10 +30,7 @@ import net.tsz.afinal.annotation.view.Select;
 
 import java.lang.reflect.Field;
 
-import in.srain.cube.app.XActivity;
-import in.srain.cube.mints.base.MintsBaseActivity;
-
-public abstract class FinalActivity extends MintsBaseActivity {
+public abstract class FinalActivity extends AppCompatActivity {
 
 
     public void setContentView(int layoutResID) {

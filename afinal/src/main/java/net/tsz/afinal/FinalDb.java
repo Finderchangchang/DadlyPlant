@@ -50,7 +50,6 @@ public class FinalDb {
             } else {
                 this.db = (new FinalDb.SqliteDbHelper(config.getContext().getApplicationContext(), config.getDbName(), config.getDbVersion(), config.getDbUpdateListener())).getWritableDatabase();
             }
-
             this.config = config;
         }
     }

@@ -1,5 +1,7 @@
 package liuliu.dadlyplant.model;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/9/19.
  */
@@ -7,306 +9,92 @@ package liuliu.dadlyplant.model;
 public class UserModel {
 
     /**
-     * login : baiiu
-     * id : 7720476
-     * avatar_url : https://avatars.githubusercontent.com/u/7720476?v=3
-     * gravatar_id :
-     * url : https://api.github.com/users/baiiu
-     * html_url : https://github.com/baiiu
-     * followers_url : https://api.github.com/users/baiiu/followers
-     * following_url : https://api.github.com/users/baiiu/following{/other_user}
-     * gists_url : https://api.github.com/users/baiiu/gists{/gist_id}
-     * starred_url : https://api.github.com/users/baiiu/starred{/owner}{/repo}
-     * subscriptions_url : https://api.github.com/users/baiiu/subscriptions
-     * organizations_url : https://api.github.com/users/baiiu/orgs
-     * repos_url : https://api.github.com/users/baiiu/repos
-     * events_url : https://api.github.com/users/baiiu/events{/privacy}
-     * received_events_url : https://api.github.com/users/baiiu/received_events
-     * type : User
-     * site_admin : false
-     * name : Zhe Zhu
-     * company : null
-     * blog : baiiu.github.io
-     * location : beijing
-     * email : baiiu@foxmail.com
-     * hireable : true
-     * bio : heading towards the starry sky,starting from the steady step.
-     * public_repos : 28
-     * public_gists : 1
-     * followers : 17
-     * following : 81
-     * created_at : 2014-05-28T04:56:40Z
-     * updated_at : 2016-09-13T13:15:18Z
+     * code : 200
+     * msg : success
+     * newslist : [{"ctime":"2016-03-06 14:11","title":"刘雨欣美女桌面","description":"美女图片","picUrl":"http://m.xxxiao.com/wp-content/uploads/sites/3/2015/06/m.xxxiao.com_2411c2dfab27e4411a27c16f4f87dd22-760x500.jpg","url":"http://m.xxxiao.com/1811"},{"ctime":"2016-03-06 14:11","title":"咖啡馆邂逅忧伤的姑娘","description":"美女图片","picUrl":"http://m.xxxiao.com/wp-content/uploads/sites/3/2015/04/m.xxxiao.com_6bb61e3b7bce0931da574d19d1d82c88-690x500.jpg","url":"http://m.xxxiao.com/123"},{"ctime":"2016-03-06 14:11","title":"中国乳神峰起樊玲","description":"美女图片","picUrl":"http://m.xxxiao.com/wp-content/uploads/sites/3/2015/07/m.xxxiao.com_ed8dedecf4d4a62f60528676f6649b85-760x500.jpg","url":"http://m.xxxiao.com/2187"},{"ctime":"2016-03-06 14:11","title":"性感美女真空上阵秀美胸艺术照","description":"美女图片","picUrl":"http://t1.27270.com/uploads/150725/8-150H515520N54.jpg","url":"http://www.27270.com/ent/meinvtupian/2015/51906.html"},{"ctime":"2016-03-06 14:11","title":"长发美女齐贝贝大秀性感火辣身姿","description":"美女图片","picUrl":"http://t1.27270.com/uploads/tu/201507/375/slt.jpg","url":"http://www.27270.com/ent/meinvtupian/2015/122489.html"},{"ctime":"2016-03-06 14:11","title":"性感的大胸美女秘书诱惑靓照","description":"美女图片","picUrl":"http://t1.27270.com/uploads/150727/8-150HF914044U.jpg","url":"http://www.27270.com/ent/meinvtupian/2015/51122.html"},{"ctime":"2016-03-06 14:11","title":"韩国\u201c逆天颜值\u201d萝莉美少女 Yurisa","description":"美女图片","picUrl":"http://m.xxxiao.com/wp-content/uploads/sites/3/2015/07/m.xxxiao.com_d425b67b2744d9f62be091b2bb3c9d93-760x500.jpg","url":"http://m.xxxiao.com/2200"},{"ctime":"2016-03-06 14:11","title":"嫩模刘嘉琦白色衬衫丁字裤展千娇百媚魅力","description":"美女图片","picUrl":"http://t1.27270.com/uploads/tu/201507/391/slt.jpg","url":"http://www.27270.com/ent/meinvtupian/2015/122766.html"},{"ctime":"2016-03-06 14:11","title":"极品御姐沙发撩人姿态魅惑写真集","description":"美女图片","picUrl":"http://t1.27270.com/uploads/tu/201507/380/slt.jpg","url":"http://www.27270.com/ent/meinvtupian/2015/122765.html"},{"ctime":"2016-03-06 14:11","title":"白皙丰满美女人体艺术照","description":"美女图片","picUrl":"http://t1.27270.com/uploads/150729/8-150H9102942291.jpg","url":"http://www.27270.com/ent/meinvtupian/2015/49857.html"}]
      */
 
-    private String login;
-    private int id;
-    private String avatar_url;
-    private String gravatar_id;
-    private String url;
-    private String html_url;
-    private String followers_url;
-    private String following_url;
-    private String gists_url;
-    private String starred_url;
-    private String subscriptions_url;
-    private String organizations_url;
-    private String repos_url;
-    private String events_url;
-    private String received_events_url;
-    private String type;
-    private boolean site_admin;
-    private String name;
-    private Object company;
-    private String blog;
-    private String location;
-    private String email;
-    private boolean hireable;
-    private String bio;
-    private int public_repos;
-    private int public_gists;
-    private int followers;
-    private int following;
-    private String created_at;
-    private String updated_at;
+    private int code;
+    private String msg;
+    /**
+     * ctime : 2016-03-06 14:11
+     * title : 刘雨欣美女桌面
+     * description : 美女图片
+     * picUrl : http://m.xxxiao.com/wp-content/uploads/sites/3/2015/06/m.xxxiao.com_2411c2dfab27e4411a27c16f4f87dd22-760x500.jpg
+     * url : http://m.xxxiao.com/1811
+     */
 
-    public String getLogin() {
-        return login;
+    private List<NewslistBean> newslist;
+
+    public int getCode() {
+        return code;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public int getId() {
-        return id;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getAvatar_url() {
-        return avatar_url;
+    public List<NewslistBean> getNewslist() {
+        return newslist;
     }
 
-    public void setAvatar_url(String avatar_url) {
-        this.avatar_url = avatar_url;
+    public void setNewslist(List<NewslistBean> newslist) {
+        this.newslist = newslist;
     }
 
-    public String getGravatar_id() {
-        return gravatar_id;
-    }
+    public static class NewslistBean {
+        private String ctime;
+        private String title;
+        private String description;
+        private String picUrl;
+        private String url;
 
-    public void setGravatar_id(String gravatar_id) {
-        this.gravatar_id = gravatar_id;
-    }
+        public String getCtime() {
+            return ctime;
+        }
 
-    public String getUrl() {
-        return url;
-    }
+        public void setCtime(String ctime) {
+            this.ctime = ctime;
+        }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public String getHtml_url() {
-        return html_url;
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public void setHtml_url(String html_url) {
-        this.html_url = html_url;
-    }
+        public String getDescription() {
+            return description;
+        }
 
-    public String getFollowers_url() {
-        return followers_url;
-    }
+        public void setDescription(String description) {
+            this.description = description;
+        }
 
-    public void setFollowers_url(String followers_url) {
-        this.followers_url = followers_url;
-    }
+        public String getPicUrl() {
+            return picUrl;
+        }
 
-    public String getFollowing_url() {
-        return following_url;
-    }
+        public void setPicUrl(String picUrl) {
+            this.picUrl = picUrl;
+        }
 
-    public void setFollowing_url(String following_url) {
-        this.following_url = following_url;
-    }
+        public String getUrl() {
+            return url;
+        }
 
-    public String getGists_url() {
-        return gists_url;
-    }
-
-    public void setGists_url(String gists_url) {
-        this.gists_url = gists_url;
-    }
-
-    public String getStarred_url() {
-        return starred_url;
-    }
-
-    public void setStarred_url(String starred_url) {
-        this.starred_url = starred_url;
-    }
-
-    public String getSubscriptions_url() {
-        return subscriptions_url;
-    }
-
-    public void setSubscriptions_url(String subscriptions_url) {
-        this.subscriptions_url = subscriptions_url;
-    }
-
-    public String getOrganizations_url() {
-        return organizations_url;
-    }
-
-    public void setOrganizations_url(String organizations_url) {
-        this.organizations_url = organizations_url;
-    }
-
-    public String getRepos_url() {
-        return repos_url;
-    }
-
-    public void setRepos_url(String repos_url) {
-        this.repos_url = repos_url;
-    }
-
-    public String getEvents_url() {
-        return events_url;
-    }
-
-    public void setEvents_url(String events_url) {
-        this.events_url = events_url;
-    }
-
-    public String getReceived_events_url() {
-        return received_events_url;
-    }
-
-    public void setReceived_events_url(String received_events_url) {
-        this.received_events_url = received_events_url;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public boolean isSite_admin() {
-        return site_admin;
-    }
-
-    public void setSite_admin(boolean site_admin) {
-        this.site_admin = site_admin;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Object getCompany() {
-        return company;
-    }
-
-    public void setCompany(Object company) {
-        this.company = company;
-    }
-
-    public String getBlog() {
-        return blog;
-    }
-
-    public void setBlog(String blog) {
-        this.blog = blog;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isHireable() {
-        return hireable;
-    }
-
-    public void setHireable(boolean hireable) {
-        this.hireable = hireable;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public int getPublic_repos() {
-        return public_repos;
-    }
-
-    public void setPublic_repos(int public_repos) {
-        this.public_repos = public_repos;
-    }
-
-    public int getPublic_gists() {
-        return public_gists;
-    }
-
-    public void setPublic_gists(int public_gists) {
-        this.public_gists = public_gists;
-    }
-
-    public int getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(int followers) {
-        this.followers = followers;
-    }
-
-    public int getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(int following) {
-        this.following = following;
-    }
-
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
-
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+        public void setUrl(String url) {
+            this.url = url;
+        }
     }
 }

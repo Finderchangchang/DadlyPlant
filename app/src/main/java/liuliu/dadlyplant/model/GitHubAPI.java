@@ -12,6 +12,6 @@ public interface GitHubAPI {
     /*
        请求该接口：https://api.github.com/users/baiiu
      */
-    @GET("users/{user}")
+    @GET("txapi/mvtp/meinv?num={user}")
     Observable<UserModel> userInfo(@Path("user") String user);
 }

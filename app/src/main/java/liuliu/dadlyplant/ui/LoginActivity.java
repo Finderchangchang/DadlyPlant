@@ -32,6 +32,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -66,6 +67,8 @@ public class LoginActivity extends BaseActivity {
     Button reg_user_btn;//注册
     @CodeNote(id = R.id.toolbar)
     Toolbar toolbar;
+    @CodeNote(id=R.id.main_ll)
+    LinearLayout main_ll;
 
     @Override
     public void initViews() {
@@ -104,7 +107,7 @@ public class LoginActivity extends BaseActivity {
             focusView.requestFocus();
         } else {
             mProgressView.setVisibility(View.VISIBLE);
-            Intent intent = new Intent(LoginActivity.this, ScrollingActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             this.finish();
         }

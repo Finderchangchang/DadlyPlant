@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Administrator on 2016/9/19.
  */
 
-public class UserModel {
+public class MeiNvModel {
 
     /**
      * code : 200

@@ -1,7 +1,7 @@
 package liuliu.dadlyplant.listener;
 
 import liuliu.dadlyplant.mview.LoginMView;
-import liuliu.dadlyplant.model.UserModel;
+import liuliu.dadlyplant.model.MeiNvModel;
 import liuliu.dadlyplant.view.ILoginView;
 
 /**
@@ -10,7 +10,7 @@ import liuliu.dadlyplant.view.ILoginView;
 
 public class LoginListener implements LoginMView {
     private ILoginView view;
-    private UserModel model;
+    private MeiNvModel model;
 
     public LoginListener(ILoginView view) {
         this.view = view;

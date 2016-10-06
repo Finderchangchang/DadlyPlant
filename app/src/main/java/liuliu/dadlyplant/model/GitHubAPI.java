@@ -1,7 +1,7 @@
 package liuliu.dadlyplant.model;
 
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -12,6 +12,6 @@ public interface GitHubAPI {
     /*
        请求该接口：https://api.github.com/users/baiiu
      */
-    @GET("txapi/mvtp/meinv?num={user}")
-    Observable<UserModel> userInfo(@Path("user") String user);
+    @GET("txapi/mvtp/meinv")
+    Observable<MeiNvModel> userInfo(@Query("num") String num);
 }

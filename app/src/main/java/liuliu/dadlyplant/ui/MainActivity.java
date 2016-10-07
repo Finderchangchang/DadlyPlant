@@ -1,7 +1,9 @@
 package liuliu.dadlyplant.ui;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -12,6 +14,7 @@ import net.tsz.afinal.cache.ACache;
 import liuliu.dadlyplant.R;
 import liuliu.dadlyplant.base.BaseActivity;
 import liuliu.dadlyplant.listener.LoginListener;
+import liuliu.dadlyplant.method.BottomTabView;
 import liuliu.dadlyplant.model.HttpUtil;
 import liuliu.dadlyplant.view.ILoginView;
 import rx.android.schedulers.AndroidSchedulers;
@@ -23,6 +26,8 @@ public class MainActivity extends BaseActivity implements ILoginView {
     ScrollView total_slv;
     private LoginListener listener;
     private ACache mCache;
+    //    @CodeNote(id = R.id.bottom_btv)
+    BottomTabView bottom_btv;
 
     @Override
     public void initViews() {
@@ -32,11 +37,28 @@ public class MainActivity extends BaseActivity implements ILoginView {
         mCache.put("name", "lwj");
         mCache.put("pwd", "pwd");
         iv = (ImageView) findViewById(R.id.iv);
+        bottom_btv = (BottomTabView) findViewById(R.id.bottssom_btv);
         iv.setOnClickListener(v -> listener.doLogin("123", ""));
         Glide.with(MainActivity.this)
                 .load("http://jcodecraeer.com/uploads/20150327/1427445293711143.png")
                 .into(iv);
+        bottom_btv.setGridAdapter(new BottomTabView.GridAdatper() {
+            @Override
+            public View getView(int index) {
+                View view = getLayoutInflater().inflate(R.layout.view_bottom_tab,
+                        null);
+                ImageView iv = (ImageView) view.findViewById(R.id.iv);
+                TextView tv = (TextView) view.findViewById(R.id.tv);
+//                iv.setImageResource(srcs[index]);
+                tv.setText("" + index);
+                return view;
+            }
 
+            @Override
+            public int getCount() {
+                return 3;
+            }
+        });
         HttpUtil.load().userInfo("10")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

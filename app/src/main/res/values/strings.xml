@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DadlyPlant</string>
+    <string name="app_name">日日记</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

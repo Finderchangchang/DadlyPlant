@@ -77,11 +77,10 @@ public class DropScrollView extends ScrollView implements View.OnTouchListener {
                         break;
                     }
                 }
-                int distance = (int) ((event.getY() - mFirstPosition) * 0.3); // 滚动距离乘以一个系数
+                int distance = (int) ((event.getY() - mFirstPosition) * 0.5); // 滚动距离乘以一个系数
                 if (distance < 0) { // 当前位置比记录位置要小，正常返回
                     break;
                 }
-
                 // 处理放大
                 mScaling = true;
                 setZoom(1 + distance);
@@ -93,16 +92,11 @@ public class DropScrollView extends ScrollView implements View.OnTouchListener {
     // 回弹动画 (使用了属性动画)
     public void replyImage() {
         final float distance = dropZoomView.getMeasuredWidth() - dropZoomViewWidth;
-
         // 设置动画
         ValueAnimator anim = ObjectAnimator.ofFloat(0.0F, 1.0F).setDuration((long) (distance * 0.7));
-
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float cVal = (Float) animation.getAnimatedValue();
-                setZoom(distance - ((distance) * cVal));
-            }
+        anim.addUpdateListener(animation -> {
+            float cVal = (Float) animation.getAnimatedValue();
+            setZoom(distance - ((distance) * cVal));
         });
         anim.start();
     }

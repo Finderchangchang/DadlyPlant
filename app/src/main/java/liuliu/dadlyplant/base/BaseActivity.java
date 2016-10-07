@@ -22,7 +22,7 @@ public abstract class BaseActivity extends FinalActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         finalDb = FinalDb.create(this, false);
-          initViews();
+        initViews();
         initEvents();
     }
 

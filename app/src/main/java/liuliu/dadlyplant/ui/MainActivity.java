@@ -11,9 +11,13 @@ import com.bumptech.glide.Glide;
 import net.tsz.afinal.annotation.view.CodeNote;
 import net.tsz.afinal.cache.ACache;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import liuliu.dadlyplant.R;
 import liuliu.dadlyplant.base.BaseActivity;
 import liuliu.dadlyplant.listener.LoginListener;
+import liuliu.dadlyplant.method.BottomItemModel;
 import liuliu.dadlyplant.method.BottomTabView;
 import liuliu.dadlyplant.model.HttpUtil;
 import liuliu.dadlyplant.view.ILoginView;
@@ -26,8 +30,8 @@ public class MainActivity extends BaseActivity implements ILoginView {
     ScrollView total_slv;
     private LoginListener listener;
     private ACache mCache;
-    //    @CodeNote(id = R.id.bottom_btv)
     BottomTabView bottom_btv;
+    private List<BottomItemModel> mBottom = new ArrayList<>();
 
     @Override
     public void initViews() {
@@ -36,13 +40,16 @@ public class MainActivity extends BaseActivity implements ILoginView {
         mCache = ACache.get(this);
         mCache.put("name", "lwj");
         mCache.put("pwd", "pwd");
+        mBottom.add(new BottomItemModel("首页", R.mipmap.loag));
+        mBottom.add(new BottomItemModel("订单", R.mipmap.loag));
+        mBottom.add(new BottomItemModel("我的", R.mipmap.loag));
         iv = (ImageView) findViewById(R.id.iv);
         bottom_btv = (BottomTabView) findViewById(R.id.bottssom_btv);
         iv.setOnClickListener(v -> listener.doLogin("123", ""));
         Glide.with(MainActivity.this)
                 .load("http://jcodecraeer.com/uploads/20150327/1427445293711143.png")
                 .into(iv);
-        bottom_btv.setGridAdapter(new BottomTabView.GridAdatper() {
+        bottom_btv.setGridAdapter(mBottom, new BottomTabView.GridAdatper() {
             @Override
             public View getView(int index) {
                 View view = getLayoutInflater().inflate(R.layout.view_bottom_tab,
@@ -58,6 +65,9 @@ public class MainActivity extends BaseActivity implements ILoginView {
             public int getCount() {
                 return 3;
             }
+        });
+        bottom_btv.setOnItemClickListener((v, index) -> {
+
         });
         HttpUtil.load().userInfo("10")
                 .subscribeOn(Schedulers.io())

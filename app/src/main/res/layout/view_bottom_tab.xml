@@ -2,23 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:gravity="center"
-    android:orientation="vertical"
-    android:background="#fff">
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:paddingTop="5dp"
         android:src="@mipmap/loag" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingBottom="5dp"
-        android:textSize="16sp"
-        android:text="首页" />
+        android:layout_marginTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="首页"
+        android:textSize="10sp" />
 </LinearLayout>

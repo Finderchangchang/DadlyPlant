@@ -2,8 +2,16 @@ package liuliu.dadlyplant.method;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import liuliu.dadlyplant.R;
 
 import static android.view.View.MeasureSpec.EXACTLY;
 import static android.view.View.MeasureSpec.makeMeasureSpec;
@@ -23,9 +31,13 @@ public class BottomTabView extends ViewGroup {
     int count = 0;
 
     GridAdatper adapter;
+    private List<BottomItemModel> val = new ArrayList<>();
 
     public BottomTabView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        mContext = context;
+//        colums = val.size();
+//        count = val.size();
     }
 
     public BottomTabView(Context context, AttributeSet attrs) {
@@ -100,9 +112,6 @@ public class BottomTabView extends ViewGroup {
                             makeMeasureSpec(gridH, EXACTLY));
                 }
                 child.layout(left, top, left + gridW, top + gridH);
-                // System.out
-                // .println("--top--" + top + ",bottom=" + (top + gridH));
-
             }
             top += gridH + margin;
         }
@@ -114,15 +123,26 @@ public class BottomTabView extends ViewGroup {
         int getCount();
     }
 
+    Context mContext;
+
     /**
      * 设置适配器
      */
-    public void setGridAdapter(GridAdatper adapter) {
+    public void setGridAdapter(List<BottomItemModel> list, GridAdatper adapter) {
         this.adapter = adapter;
+        this.val = list;
+
         // 动态添加视图
         int size = adapter.getCount();
-        for (int i = 0; i < size; i++) {
-            addView(adapter.getView(i));
+        for (int i = 0; i < list.size(); i++) {
+            View view = LayoutInflater.from(mContext).inflate(R.layout.view_bottom_tab,
+                    null);
+            BottomItemModel item = list.get(i);
+            ImageView iv = (ImageView) view.findViewById(R.id.iv);
+            TextView tv = (TextView) view.findViewById(R.id.tv);
+            iv.setImageResource(item.getNormal_img());
+            tv.setText(item.getVal());
+            addView(view);
         }
     }
 
@@ -146,4 +166,6 @@ public class BottomTabView extends ViewGroup {
             });
         }
     }
+
 }
+

@@ -1,7 +1,9 @@
 package liuliu.dadlyplant.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -75,6 +77,8 @@ public class MainActivity extends BaseActivity implements ILoginView {
         new Handler().postDelayed(() -> {
             startActivity(new Intent(MainActivity.this,ScrollingActivity.class));
         }, 1000 * 5);
+        MainActivity.this.getSharedPreferences("",MODE_PRIVATE);//设置私有的文件只能app内部进行访问
+        SharedPreferences sp=PreferenceManager.getDefaultSharedPreferences(this);//另外一种读取字节流存储的方法
     }
 
     @Override

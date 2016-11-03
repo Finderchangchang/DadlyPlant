@@ -1,5 +1,7 @@
 package liuliu.dadlyplant.ui;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -9,7 +11,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import net.tsz.afinal.annotation.view.CodeNote;
-import net.tsz.afinal.cache.ACache;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,6 @@ public class MainActivity extends BaseActivity implements ILoginView {
     @CodeNote(id = R.id.total_slv)
     ScrollView total_slv;
     private LoginListener listener;
-    private ACache mCache;
     BottomTabView bottom_btv;
     private List<BottomItemModel> mBottom = new ArrayList<>();
 
@@ -37,9 +37,6 @@ public class MainActivity extends BaseActivity implements ILoginView {
     public void initViews() {
         setContentView(R.layout.activity_main);
         listener = new LoginListener(this);
-        mCache = ACache.get(this);
-        mCache.put("name", "lwj");
-        mCache.put("pwd", "pwd");
         mBottom.add(new BottomItemModel("首页", R.mipmap.loag));
         mBottom.add(new BottomItemModel("订单", R.mipmap.loag));
         mBottom.add(new BottomItemModel("我的", R.mipmap.loag));
@@ -75,7 +72,9 @@ public class MainActivity extends BaseActivity implements ILoginView {
                 .subscribe(userModel -> {
                     Toast.makeText(this, userModel.getMsg(), Toast.LENGTH_SHORT).show();
                 });
-
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(MainActivity.this,ScrollingActivity.class));
+        }, 1000 * 5);
     }
 
     @Override
@@ -90,6 +89,6 @@ public class MainActivity extends BaseActivity implements ILoginView {
 
     @Override
     public void loginResult(boolean result) {
-        Toast.makeText(this, mCache.getAsString("name") + mCache.getAsString("pwd"), Toast.LENGTH_SHORT).show();
+
     }
 }

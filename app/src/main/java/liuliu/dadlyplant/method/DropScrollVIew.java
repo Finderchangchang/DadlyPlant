@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 
 /**
+ * 下拉图片方法，松开回到初始位置
  * Created by Administrator on 2016/10/6.
  */
 

@@ -2,7 +2,7 @@ package liuliu.dadlyplant.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.Vibrator;
+
 import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.bmob.v3.Bmob;
@@ -13,7 +13,6 @@ import liuliu.dadlyplant.method.Utils;
  */
 public class BaseApplication extends Application {
     private static Context context;
-    public Vibrator mVibrator;
 
     @Override
     public void onCreate() {

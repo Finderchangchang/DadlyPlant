@@ -41,7 +41,7 @@ public class LoadMoreActivity extends BaseActivity {
             @Override
             public void convert(CommonViewHolder holder, MeiNvModel.NewslistBean model, int position) {
                 holder.setText(R.id.txt, model.getTitle());
-                holder.setGlideImage(R.id.iv,model.getPicUrl());
+                holder.setGlideImage(R.id.iv, model.getPicUrl());
             }
         };
         main_lv.setAdapter(mAdapter);
@@ -57,27 +57,26 @@ public class LoadMoreActivity extends BaseActivity {
     }
 
     private void loadMessage() {
-        if(now_index==1){
+        if (now_index == 1) {
             mList = new ArrayList<>();
         }
         HttpUtil.load().userInfo("10")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(userModel -> userModel.getNewslist())
-                .subscribe(list -> {
-                    Observable.from(list)
-                            .map(model -> {
-                                mList.add(model);
-                                return "";
-                            })
-                            .subscribe(val -> {
-                                mAdapter.refresh(mList);
-                                if (now_index > 1) {
-                                    total_rl.setLoading(false);
-                                } else if (now_index == 1) {
-                                    total_rl.setRefreshing(false);
-                                }
-                            });
+                .flatMap(userModel -> {//返回List
+                    return Observable.from(userModel.getNewslist());
+                })
+                .toMap(model -> {//循环获得list中的model
+                    mList.add(model);
+                    return "";
+                })
+                .subscribe(val -> {
+                    mAdapter.refresh(mList);
+                    if (now_index > 1) {
+                        total_rl.setLoading(false);
+                    } else if (now_index == 1) {
+                        total_rl.setRefreshing(false);
+                    }
                 });
     }
 }

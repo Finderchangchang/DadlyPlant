@@ -26,8 +26,6 @@ dependencies {
     compile 'com.shizhefei:ViewPagerIndicator:1.0.7'
     compile 'in.srain.cube:ultra-ptr:1.0.11'//下拉刷新组件
     compile 'com.mcxiaoke.volley:library:1.0.18'
-    compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
-    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.5'
 //okHttp
@@ -38,8 +36,6 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
-
-    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
 
 
 }

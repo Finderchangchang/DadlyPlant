@@ -11,6 +11,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    //    sourceSets{
+    //        main{
+    //            jniLibs.srcDirs = ['libs']
+    //        }
+    //    }
     buildTypes {
         release {
             minifyEnabled false
@@ -41,7 +46,8 @@ apply plugin: 'me.tatarka.retrolambda'
 
 dependencies {
     compile project(':afinal')
-    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     testCompile 'junit:junit:4.12'
+//    compile files('libs/AMap3DMap_4.0.1_AMapNavi_1.9.3_AMapLocation_3.0.0_20161014.jar')
+//    compile files('libs/Msc.jar')
 }

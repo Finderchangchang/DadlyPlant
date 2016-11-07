@@ -44,7 +44,9 @@ public class MainActivity extends BaseActivity implements ILoginView {
         mBottom.add(new BottomItemModel("我的", R.mipmap.loag));
         iv = (ImageView) findViewById(R.id.iv);
         bottom_btv = (BottomTabView) findViewById(R.id.bottssom_btv);
-        iv.setOnClickListener(v -> listener.doLogin("123", ""));
+        iv.setOnClickListener(v -> {
+
+        });
         Glide.with(MainActivity.this)
                 .load("http://jcodecraeer.com/uploads/20150327/1427445293711143.png")
                 .into(iv);

@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,7 @@ public class BottomTabView extends ViewGroup {
     private int mMaxChildWidth = 0;
     private int mMaxChildHeight = 0;
     int count = 0;
-
+    int now_click = 0;//当前点击item
     GridAdatper adapter;
     private List<BottomItemModel> val = new ArrayList<>();
 
@@ -138,10 +140,19 @@ public class BottomTabView extends ViewGroup {
             View view = LayoutInflater.from(mContext).inflate(R.layout.view_bottom_tab,
                     null);
             BottomItemModel item = list.get(i);
+            LinearLayout main_ll = (LinearLayout) view.findViewById(R.id.main_ll);
             ImageView iv = (ImageView) view.findViewById(R.id.iv);
             TextView tv = (TextView) view.findViewById(R.id.tv);
-            iv.setImageResource(item.getNormal_img());
+            if (i == 0) {
+                iv.setImageResource(item.getPressed_img());
+            } else {
+                iv.setImageResource(item.getNormal_img());
+            }
             tv.setText(item.getVal());
+            int finalI = i;
+            main_ll.setOnClickListener(v -> {
+                Toast.makeText(mContext, "123", Toast.LENGTH_SHORT).show();
+            });
             addView(view);
         }
     }
